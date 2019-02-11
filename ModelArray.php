@@ -6,11 +6,6 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of ModelArray
- *
- * @author Diego1
- */
 class ModelArray {
 
     function ordenar_arreglo($array) {
