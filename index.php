@@ -57,7 +57,7 @@ and open the template in the editor.
                         echo "  </div>";
                         echo"</div>";
                         echo "<h3>Elementos ordenados</h3>";
-                        echo "<div class='row-md-3'>";
+                        echo "<div class='row'>";
                         echo "<div class='col-md-4'>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-hover'>";
