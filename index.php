@@ -24,8 +24,7 @@ and open the template in the editor.
             <div class="jumbotron">
                 <h1>Estadística Probabilística</h1>
                 <h2>Proyecto de probabilidad y estadística</h2>
-                <h5>*Diego León</h5>
-                <h5>*Adrián Robayo</h5>
+  
             </div>
             <div class="container">
                 <form action="controller.php">
