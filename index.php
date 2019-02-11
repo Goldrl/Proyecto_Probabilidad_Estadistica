@@ -17,18 +17,16 @@ and open the template in the editor.
         <link rel="stylesheet" href="diseño.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <title>Estadística Probabilística</title>
+        <title>Probabilidad y Estadística</title>
     </head>
     <body>
         <div class="container">
             <div class="jumbotron">
-                <h1>Estadística Probabilística</h1>
-                <h2>Proyecto de probabilidad y estadística</h2>
-  
+                <h2>Proyecto</h2>
             </div>
             <div class="container">
                 <form action="controller.php">
-                    <input type='text' placeholder='Ejemplo: 45,43,36,34,64,23...' class='form-control' name='valores' required='true'/><br>
+                    <input type='text' placeholder='Ejemplo: 45,34,64,23,...,55,63' class='form-control' name='valores' required='true'/><br>
                     <div class=boton>
                         <input type="submit" class="btn btn-primary" value="Aceptar" />
                     </div>
