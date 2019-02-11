@@ -17,17 +17,20 @@ and open the template in the editor.
         <link rel="stylesheet" href="diseño.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <title>Estadística Probabilística</title>
+        <title>Probabilidad y Estadística</title>
     </head>
     <body>
         <div class="container">
-            <div class="jumbotron">
-                <h1>Estadística Probabilística</h1>
-                <h2>Proyecto de probabilidad y estadística</h2>
-                <h5>*Diego León</h5>
-                <h5>*Adrián Robayo</h5>
+            <div class="jumbotron"  >
+                <h2>Proyecto</h2>
+                <h4>Integrantes: 
+                    Oliver Guamán,
+                    Michelle Davas,
+                    Stifen Lema</h4>
             </div>
+        </div>
             <div class="container">
+                <div style="background-color:#DDFBFF">
                 <form action="controller.php">
                     <input type='text' placeholder='Ejemplo: 45,43,36,34,64,23...' class='form-control' name='valores' required='true'/><br>
                     <div class=boton>
@@ -43,17 +46,21 @@ and open the template in the editor.
                         echo "<strong>Error!</strong> Ingrese 40 valores enteros.";
                         echo "</div>";
                     } else {
-
                         echo"<div class= 'alert alert-success'>";
                         echo "<strong>Correcto!</strong> Datos ingresados con éxito.";
                         echo "</div>";
                         $array_aux = $_SESSION['array_aux'];
                         echo "<h3>Elementos ingresados</h3>";
-                        echo "<p>" . $_SESSION['cadena'] . "<p>";
+                        echo "<div class='panel panel-default'>";
+                        echo "<div class='panel-body'>";
+                        echo "<p class='text-primary'>" . $_SESSION['cadena'] . "<p>";
+                        echo "  </div>";
+                        echo"</div>";
                         echo "<h3>Elementos ordenados</h3>";
-                        echo "<div class='row'>";
+                        echo "<div class='row-md-3'>";
                         echo "<div class='col-md-4'>";
-                        echo "<table class='table table-bordered'>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-hover'>";
                         echo "<tbody>";
                         for ($i = 0; $i < 5; $i++) {
                             echo "<tr>";
@@ -64,6 +71,7 @@ and open the template in the editor.
                         }
                         echo "</tbody>";
                         echo "</table>";
+                        echo "</div>";
                         echo "</div>";
                         //datos obtenidos
                         echo "<div class='col-md-4'>";
@@ -81,7 +89,7 @@ and open the template in the editor.
                         echo "<strong>R=</strong>" . $rango . "<br>";
                         //valor de la clase
                         $clase = $_SESSION['clase'];
-                        echo "<strong> K=</strong>" . $clase . "<br>";
+                        echo "<strong> Clase=</strong>" . $clase . "<br>";
 //            anchura de la clase
                         $ancho = $_SESSION['ancho'];
                         echo "<strong> Cj=</strong>" . $ancho . "<br>";
@@ -101,8 +109,8 @@ and open the template in the editor.
                         $faxabsfimenosfa = $_SESSION['faxabsfimenosfa'];
 
                         echo "<h3>Tabla de inferencia</h3>";
-                        echo "<table class='table table-bordered'>";
-//                        echo " <table class='table table-bordered table-sm'>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-hover'>";
                         echo "<thead>";
                         echo "<tr>";
                         echo "<th>Clases</th>";
@@ -113,9 +121,9 @@ and open the template in the editor.
                         echo "<th>fi</th>";
                         echo "<th>fa x fi</th>";
                         echo "<th>fa x log(fi)</th>";
-                        echo "<th>fa/fi</th>";
-                        echo "<th>(fi^2)xfa</th>";
-                        echo "<th>faxabs(fi-x')</th>";
+                        echo "<th>fa / fi</th>";
+                        echo "<th>fa x fi^2</th>";
+                        echo "<th>fa x |fi-x'|</th>";
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
@@ -136,6 +144,7 @@ and open the template in the editor.
                         }
                         echo "</tbody>";
                         echo "</table>";
+                        echo "</div>";
                         /* ________________________________________________________________ */
                         $media_aritmetica_da = $_SESSION['media_aritmetica_da'];
                         $media_aritmetica_dna = $_SESSION['media_aritmetica_dna'];
@@ -154,7 +163,8 @@ and open the template in the editor.
                         $obtener_pastel = $_SESSION['obtener_pastel'];
 
                         echo "<h3>Medidas de centralización</h3>";
-                        echo "<table class='table table-bordered'>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-hover'>";
                         echo "<thead>";
                         echo "<tr>";
                         echo "<th></th>";
@@ -197,6 +207,8 @@ and open the template in the editor.
                         echo "</tr>";
                         echo "</tbody>";
                         echo "</table>";
+                        echo "</div>";
+                         echo "</div>";
                         ////////////////////////////////////////////////////////////////////
                         //tablas
                         echo '<br></br>';
@@ -249,7 +261,7 @@ and open the template in the editor.
                     if ($_SESSION['estado'] == true) {
                         ?>
                         <h3>Cuantiles</h3>
-                        <form method="post"">
+                        <form method="post">
                             <!--Cuartil:-->
                             <div class="form-group">
                                 <label>Cuartil:</label>
@@ -277,7 +289,7 @@ and open the template in the editor.
                     // Global Options
                     Chart.defaults.global.defaultFontFamily = 'Lato';
                     Chart.defaults.global.defaultFontSize = 18;
-                    Chart.defaults.global.defaultFontColor = '#777';
+                    Chart.defaults.global.defaultFontColor = '#666';
                     var massPopChart = new Chart(myChart, {
                         type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea4
                         data: {
@@ -475,6 +487,7 @@ and open the template in the editor.
                         }
                     });
                 </script>
+               
             </div>
 
     </body>

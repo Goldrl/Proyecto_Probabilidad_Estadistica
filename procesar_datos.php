@@ -12,7 +12,8 @@ $faA = $_SESSION['faA'];
 $modelArray = new ModelArray();
 //cuartil
 echo "<h4>Cuartil</h4>";
-echo "<table class='table table-bordered'>";
+echo "<div class='table-responsive'>";
+echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>Solicitado</th>";
@@ -30,9 +31,11 @@ echo "<td>" . $cuartil_da . "</td>";
 echo "</tr>";
 echo "</tbody>";
 echo "</table>";
+echo "</div>";
 //decil
 echo "<h4>Decil</h4>";
-echo "<table class='table table-bordered'>";
+echo "<div class='table-responsive'>";
+echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>Solicitado</th>";
@@ -50,9 +53,11 @@ echo "<td>" . $decil_da . "</td>";
 echo "</tr>";
 echo "</tbody>";
 echo "</table>";
+echo "</div>";
 //percentil
 echo "<h4>Percentil</h4>";
-echo "<table class='table table-bordered'>";
+echo "<div class='table-responsive'>";
+echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>Solicitado</th>";
@@ -74,4 +79,5 @@ echo "<td>" . $percentil_da . "</td>";
 echo "</tr>";
 echo "</tbody>";
 echo "</table>";
+echo "</div>";
 
