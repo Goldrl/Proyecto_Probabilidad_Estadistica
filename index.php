@@ -32,7 +32,7 @@ and open the template in the editor.
             <div class="container">
                 <div style="background-color:#DDFBFF">
                 <form action="controller.php">
-                    <input type='text' placeholder='Ejemplo: 45,43,36,34,64,23...' class='form-control' name='valores' required='true'/><br>
+                    <input type='text' placeholder='Ingrese 40 datos. Ejemplo: 10,52,36,41,...' class='form-control' name='valores' required='true'/><br>
                     <div class=boton>
                         <input type="submit" class="btn btn-primary" value="Aceptar" />
                     </div>
@@ -43,20 +43,20 @@ and open the template in the editor.
                 if (isset($_SESSION['estado'])) {
                     if ($_SESSION['estado'] == false) {
                         echo"<div class= 'alert alert-danger'>";
-                        echo "<strong>Error!</strong> Ingrese 40 valores enteros.";
+                        echo "<strong>Error!</strong> Ingrese 40 datos ENTEROS.";
                         echo "</div>";
                     } else {
                         echo"<div class= 'alert alert-success'>";
-                        echo "<strong>Correcto!</strong> Datos ingresados con éxito.";
+                        echo "Datos ingresados correctamente.";
                         echo "</div>";
                         $array_aux = $_SESSION['array_aux'];
-                        echo "<h3>Elementos ingresados</h3>";
+                        echo "<h3>DATOS INGRESADOS</h3>";
                         echo "<div class='panel panel-default'>";
                         echo "<div class='panel-body'>";
                         echo "<p class='text-primary'>" . $_SESSION['cadena'] . "<p>";
                         echo "  </div>";
                         echo"</div>";
-                        echo "<h3>Elementos ordenados</h3>";
+                        echo "<h3>DATOS ORDENADOS</h3>";
                         echo "<div class='row'>";
                         echo "<div class='col-md-4'>";
                         echo "<div class='table-responsive'>";
@@ -77,22 +77,22 @@ and open the template in the editor.
                         echo "<div class='col-md-4'>";
                         //valor de N
                         $N = $_SESSION['N'];
-                        echo "<strong>N=</strong>" . $N . "<br>";
+                        echo "<strong> N = </strong>" . $N . "<br>";
                         //valor mínimo
                         $min = $_SESSION['min'];
-                        echo "<strong>min=</strong>" . $min . "<br>";
+                        echo "<strong> Mínimo = </strong>" . $min . "<br>";
                         //valos máximo
                         $max = $_SESSION['max'];
-                        echo "<strong>max=</strong>" . $max . "<br>";
+                        echo "<strong> Máximo = </strong>" . $max . "<br>";
                         //valor del rango
                         $rango = $_SESSION['rango'];
-                        echo "<strong>R=</strong>" . $rango . "<br>";
+                        echo "<strong> Rango = Máximo - Mínimo = </strong>" . $rango . "<br>";
                         //valor de la clase
                         $clase = $_SESSION['clase'];
-                        echo "<strong> Clase=</strong>" . $clase . "<br>";
+                        echo "<strong> Clase = √N = </strong>" . $clase . "<br>";
 //            anchura de la clase
                         $ancho = $_SESSION['ancho'];
-                        echo "<strong> Cj=</strong>" . $ancho . "<br>";
+                        echo "<strong> Ancho de Clase = Rango/Clase =  </strong>" . $ancho . "<br>";
                         echo "</div>";
                         echo "</div>";
                         /* _____________________________________________ */
@@ -108,12 +108,12 @@ and open the template in the editor.
                         $ficuadradoxfa = $_SESSION['ficuadradoxfa'];
                         $faxabsfimenosfa = $_SESSION['faxabsfimenosfa'];
 
-                        echo "<h3>Tabla de inferencia</h3>";
+                        echo "<h3>TABLA DE INFERENCIA</h3>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-hover'>";
                         echo "<thead>";
                         echo "<tr>";
-                        echo "<th>Clases</th>";
+                        echo "<th>ClASES</th>";
                         echo "<th>fa</th>";
                         echo "<th>faA</th>";
                         echo "<th>fr</th>";
@@ -162,48 +162,72 @@ and open the template in the editor.
                         $moda_dna = $_SESSION['moda_dna'];
                         $obtener_pastel = $_SESSION['obtener_pastel'];
 
-                        echo "<h3>Medidas de centralización</h3>";
+                        echo "<h3>MEDIDAS DE CENTRALIZACIÓN</h3>";
+//                        echo"<h4>Formulas</h4>";
+//                        echo"<h4>Media aritmetica: DA: Sumatoria(fa*fi)/N --- DNA: Sumatoria(xi)/N</h4>";
+//                        echo"<h4>Media Geometrica: DA: Sumatoria(fa*log(fi))/N</h4>";
+//                        echo"<h4>Media Geometrica: DNA: N^√(x1*x2*x3*…*xn)</h4>";
+//                        echo"<h4>Media armonica: DA: N/Sumatoria(fa/fi)</h4>";
+//                        echo"<h4>Media armonica: DNA: N/((1/x1)+(1/x2)+...+(1/xn))</h4>";
+//                        echo"<h4>Media cuadratica: DA: √(Sumatoria(fa*fi^2)/N)</h4>";
+//                        echo"<h4>Media cuadratica: DNA: √((x1^2+x2^2+x3^2+...+xn^2)/N)</h4>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-hover'>";
                         echo "<thead>";
                         echo "<tr>";
                         echo "<th></th>";
-                        echo "<th>Datos Agrupados</th>";
-                        echo "<th>Datos No Agrupados</th>";
+                        echo "<th>DATOS AGRUPADOS: </th>";
+                        echo "<th>Formula DA: </th>";
+                        echo "<th>DATOS NO AGRUPADOS: </th>";
+                        echo "<th>Formula DNA: </th>";
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
                         echo "<tr>";
-                        echo "<td><strong>Media aritmética</strong></td>";
+                        echo "<td><strong>Media aritmética:</strong></td>";
                         echo "<td>" . $media_aritmetica_da . "</td>";
+                        echo "<td>"."Sumatoria(fa*fi)/N". "</td>";
                         echo "<td>" . $media_aritmetica_dna . "</td>";
+                        echo "<td>"."Sumatoria(xi)/N". "</td>";
                         echo "</tr>";
-                        echo "<td><strong>Media geométrica</strong></td>";
+                        echo "<td><strong>Media geométrica:</strong></td>";
                         echo "<td>" . $media_geometrica_da . "</td>";
+                        echo "<td>"."Sumatoria(fa*log(fi))/N". "</td>";
                         echo "<td>" . $media_geometrica_dna . "</td>";
+                        echo "<td>"."N^√(x1*x2*x3*…*xn)". "</td>";
                         echo "</tr>";
-                        echo "<td><strong>Media armónica</strong></td>";
+                        echo "<td><strong>Media armónica:</strong></td>";
                         echo "<td>" . $media_armonica_da . "</td>";
+                        echo "<td>"."N/Sumatoria(fa/fi)". "</td>";
                         echo "<td>" . $media_armonica_dna . "</td>";
+                        echo "<td>"."N/((1/x1)+(1/x2)+...+(1/xn))". "</td>";
                         echo "</tr>";
                         echo "</tr>";
-                        echo "<td><strong>Media cuadrática</strong></td>";
+                        echo "<td><strong>Media cuadrática:</strong></td>";
                         echo "<td>" . $media_cuadratica_da . "</td>";
+                        echo "<td>"."√(Sumatoria(fa*fi^2)/N)". "</td>";
                         echo "<td>" . $media_cuadratica_dna . "</td>";
+                        echo "<td>"."√((x1^2+x2^2+x3^2+...+xn^2)/N)". "</td>";
                         echo "</tr>";
                         echo "</tr>";
-                        echo "<td><strong>Desviación media</strong></td>";
+                        echo "<td><strong>Desviación media:</strong></td>";
                         echo "<td>" . $desviacion_media_da . "</td>";
+                        echo "<td>"."Sumatoria(fa(|fi-media aritmetica|))/N". "</td>";
                         echo "<td>" . $desviacion_media_dna . "</td>";
+                        echo "<td>"."Sumatoria(|xi - media aritmetica|)/N". "</td>";
                         echo "</tr>";
                         echo "</tr>";
-                        echo "<td><strong>Mediana</strong></td>";
+                        echo "<td><strong>Mediana:</strong></td>";
                         echo "<td>" . $mediana_da . "</td>";
+                        echo "<td>"."L + ((((N/2)-FA)/f)* i)". "</td>";
                         echo "<td>" . $mediana_dna . "</td>";
+                        echo "<td>"."-". "</td>";
                         echo "</tr>";
-                        echo "<td><strong>Moda</strong></td>";
+                        echo "<td><strong>Moda:</strong></td>";
                         echo "<td>" . $moda_da . "</td>";
+                        echo "<td>"."-". "</td>";
                         echo "<td>" . $moda_dna . "</td>";
+                        echo "<td>"."Dato que mas se repite". "</td>";
                         echo "</tr>";
                         echo "</tbody>";
                         echo "</table>";
@@ -260,7 +284,7 @@ and open the template in the editor.
                 if (isset($_SESSION['estado'])) {
                     if ($_SESSION['estado'] == true) {
                         ?>
-                        <h3>Cuantiles</h3>
+                        <h3>CUARTILES</h3>
                         <form method="post">
                             <!--Cuartil:-->
                             <div class="form-group">

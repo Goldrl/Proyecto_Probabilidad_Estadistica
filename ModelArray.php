@@ -199,6 +199,21 @@ class ModelArray {
         return $faxfi;
     }
 
+    function obtener_faxlog_fi($clase, $fa, $fi) {
+        $faxlogfi = array();
+        for ($i = 0; $i < $clase; $i++) {
+            $aux = $fa[$i] * log10($fi[$i]);
+            $faxlogfi[$i] = round($aux, 2);
+        }
+        //obtenemos la suma
+        $acum = 0;
+        for ($i = 0; $i < count($faxlogfi); $i++) {
+            $acum += $faxlogfi[$i];
+        }
+        $faxlogfi[$clase] = $acum;
+        return $faxlogfi;
+    }
+
     function obtener_media_aritmetica_da($clase, $faxfi, $N) {
         $aux = $faxfi[$clase] / $N;
         return round($aux, 2);
@@ -213,32 +228,6 @@ class ModelArray {
         }
         $acum /= $N;
         return round($acum, 2);
-    }
-
-//    function obtener_media_aritmetica_dna($array_aux, $N) {
-//        $acum = 0;
-//        for ($i = 0; $i < 5; $i++) {
-//            for ($j = 0; $j < 8; $j++) {
-//                $acum += $array_aux[$i][$j];
-//            }
-//        }
-//        $acum2 = $acum / $N;
-//        return "Sumatoria= " . $acum . " | Resultado= " . round($acum2, 2);
-//    }
-
-    function obtener_faxlog_fi($clase, $fa, $fi) {
-        $faxlogfi = array();
-        for ($i = 0; $i < $clase; $i++) {
-            $aux = $fa[$i] * log10($fi[$i]);
-            $faxlogfi[$i] = round($aux, 2);
-        }
-        //obtenemos la suma
-        $acum = 0;
-        for ($i = 0; $i < count($faxlogfi); $i++) {
-            $acum += $faxlogfi[$i];
-        }
-        $faxlogfi[$clase] = $acum;
-        return $faxlogfi;
     }
 
     function obtener_media_geometrica_da($clase, $faxlogfi, $N) {
@@ -258,18 +247,6 @@ class ModelArray {
         $acum = pow($acum, (1 / $N));
         return round($acum, 2);
     }
-
-//    function obtener_media_geometrica_dna($array_aux, $N) {
-//        $acum = 1;
-//        for ($i = 0; $i < 5; $i++) {
-//            for ($j = 0; $j < 8; $j++) {
-//                $acum *= $array_aux[$i][$j];
-//            }
-//        }
-//        $acum = round($acum, 2);
-//        $acum2 = pow($acum, (1 / $N));
-//        return "Sumatoria= " . $acum . " | Resultado= " . round($acum2, 2);
-//    }
 
     function obtener_fadivfi($clase, $fa, $fi) {
         $fadivfi = array();
@@ -303,18 +280,6 @@ class ModelArray {
         return round($acum, 2);
     }
 
-//    function obtener_media_armonica_dna($array_aux, $N) {
-//        $acum = 0;
-//        for ($i = 0; $i < 5; $i++) {
-//            for ($j = 0; $j < 8; $j++) {
-//                $acum += 1 / $array_aux[$i][$j];
-//            }
-//        }
-//        $acum = round($acum, 2);
-//        $acum2 = $N / $acum;
-//        return "Sumatoria= " . $acum . " | Resultado= " . round($acum2, 2);
-//    }
-
     function obtener_ficuadradoxfa($clase, $fa, $fi) {
         $ficuadradoxfa = array();
         for ($i = 0; $i < $clase; $i++) {
@@ -345,17 +310,6 @@ class ModelArray {
         $acum = sqrt($acum / $N);
         return round($acum, 2);
     }
-
-//    function obtener_media_cuadratica_dna($array_aux, $N) {
-//        $acum = 0;
-//        for ($i = 0; $i < 5; $i++) {
-//            for ($j = 0; $j < 8; $j++) {
-//                $acum += pow($array_aux[$i][$j], 2);
-//            }
-//        }
-//        $acum2 = sqrt($acum / $N);
-//        return "Sumatoria= " . $acum . " | Resultado= " . round($acum2, 2);
-//    }
 
     function obtener_faxabsfimenosfa($clase, $fa, $fi, $x) {
         $faxabsfimenosfa = array();
@@ -389,21 +343,10 @@ class ModelArray {
         return round($acum, 2);
     }
 
-//    function obtener_desviacion_media_dna($array_aux, $x, $N) {
-//        $acum = 0;
-//        for ($i = 0; $i < 5; $i++) {
-//            for ($j = 0; $j < 8; $j++) {
-//                $acum += abs($array_aux[$i][$j] - $x);
-//            }
-//        }
-//        $acum = round($acum, 2);
-//        $acum2 = $acum / $N;
-//        return "Sumatoria= " . $acum . " | Resultado= " . round($acum2, 2);
-//    }
-
     function obtener_mediana_da($array_aux, $clases, $fa, $faA, $N) {
         $temp = $N / 2;
         $cont = 0;
+        
         for ($i = 0; $i < 5; $i++) {
             for ($j = 0; $j < 8; $j++) {
                 $cont++;
@@ -466,7 +409,7 @@ class ModelArray {
         }
         //concatenando al resultado
         for ($j = 0; $j < count($resultados); $j++) {
-            $aux = $aux . $resultados[$j]."<br>";
+            $aux = $aux . $resultados[$j] . "<br>";
         }
         if (count($indices) == 1) {
             $aux = $aux . "Unimodal<br>";

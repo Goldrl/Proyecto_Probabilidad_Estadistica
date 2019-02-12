@@ -4,13 +4,6 @@
 include_once './ModelArray.php';
 session_start();
 
-//captamos los datos ingresados en index.php
-//$array = array();
-//for ($i = 0; $i < 40; $i++) {
-//    $indice = sprintf('%s%d', "e", $i);
-//    $array[$i] = $_GET[$indice];
-//}
-
 $cadena = $_GET["valores"];
 $_SESSION['cadena'] = $cadena;
 $array_cadena = (explode(",", $cadena));
